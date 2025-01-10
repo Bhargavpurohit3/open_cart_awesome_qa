@@ -17,7 +17,7 @@ def test_registraion():
 
         driver.find_element(By.ID, "input-firstname").send_keys(raw["First Name"])
         driver.find_element(By.ID, "input-lastname").send_keys(raw["Last Name"])
-        driver.find_element(By.ID, "input-email" ).send_keys(raw["E-Mail"])
+        driver.find_element(By.ID, "input-email").send_keys(raw["E-Mail"])
         driver.find_element(By.ID, "input-telephone").send_keys(raw["Telephone"])
         driver.find_element(By.ID, "input-password").send_keys(raw["Your Password"])
         driver.find_element(By.ID, "input-confirm").send_keys(raw["Password Confirm"])
@@ -28,13 +28,11 @@ def test_registraion():
             driver.find_element(By.XPATH, "//input[@name='newsletter' and @value='0']").click()
 
         driver.find_element(By.XPATH, "//input[@name='agree' and @value='1']").click()
-
-
-        time.sleep(5)
-
+        driver.find_element(By.XPATH, "//input[@class='btn btn-primary']").click()
+        time.sleep(10)
         message = driver.find_element(By.TAG_NAME,"h1")
 
-        assert message.text == "Register Account"
-        driver.refresh()
+        assert message.text == "Your Account Has Been Created!"
+        driver.find_element(By)
 
     driver.quit()
